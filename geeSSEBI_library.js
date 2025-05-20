@@ -300,7 +300,7 @@ var preprocessInputsL8 = function (startDate,
 
     // hour computation
     var time = an_image.date()// get the time
-    var hour = time.format('H')
+    var hour = ee.Number.parse(time.format('H'))
     // finally apply the functions declared above
     var result = obtainRadiationD(obtainRadiationI(an_image,
         startDate,
@@ -501,7 +501,7 @@ var preprocessInputsL9 = function (startDate,
 
     // hour computation
     var time = an_image.date()// get the time
-    var hour = time.format('H')
+    var hour = ee.Number.parse(time.format('H'))
     // finally apply the functions declared above
     var result = obtainRadiationD(obtainRadiationI(an_image,
         startDate,
@@ -715,7 +715,7 @@ function obtainEMISS(image){
   .map(preprocess).map(computeEmitted)
   .first().clip(geometry);
   var time = an_image.date();// get the time
-  var hour = time.format('H')
+  var hour = ee.Number.parse(time.format('H'))
 
   var result = obtainRadiationD(obtainRadiationI(an_image, 
                                 startDate, 
